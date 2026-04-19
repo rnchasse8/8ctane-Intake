@@ -7,21 +7,21 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #060b16; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem; font-family: 'Barlow', sans-serif; }
+  body { background: #060b16; min-height: 100vh; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem; font-family: "Barlow", sans-serif; }
   .fw { background: #0a0f1e; border-radius: 16px; padding: 2.5rem; width: 100%; max-width: 720px; color: #e8edf5; }
   .logo-wrap { text-align: center; margin-bottom: 0.5rem; }
   .logo-img { width: 280px; max-width: 100%; }
   .form-subtitle { font-size: 12px; letter-spacing: 3px; color: #5a7a9a; text-transform: uppercase; text-align: center; margin-bottom: 2rem; }
   .program-section { margin-bottom: 1.5rem; padding: 1.25rem; background: #0d1625; border-radius: 10px; border: 1px solid #00b4ff33; }
-  .program-section .sl { margin-top: 0; }
-  .sl { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 3px; color: #00b4ff; text-transform: uppercase; margin: 2rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid #1a2a3a; }
+  .sl { font-family: "Barlow Condensed", sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 3px; color: #00b4ff; text-transform: uppercase; margin: 2rem 0 0.75rem; padding-bottom: 6px; border-bottom: 1px solid #1a2a3a; }
+  .sl:first-child { margin-top: 0; }
   .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
   .f { display: flex; flex-direction: column; gap: 5px; }
   .f label { font-size: 11px; letter-spacing: 1.5px; color: #5a7a9a; text-transform: uppercase; }
   .f input, .f select, .f textarea {
     background: #0d1625; border: 1px solid #1e3050; border-radius: 6px;
-    color: #e8edf5; padding: 10px 12px; font-size: 14px; font-family: 'Barlow', sans-serif;
+    color: #e8edf5; padding: 10px 12px; font-size: 14px; font-family: "Barlow", sans-serif;
     outline: none; transition: border-color 0.2s; width: 100%;
   }
   .f input:focus, .f select:focus, .f textarea:focus { border-color: #00b4ff; }
@@ -31,15 +31,22 @@
   .rp { padding: 7px 14px; border-radius: 20px; border: 1px solid #1e3050; font-size: 13px; cursor: pointer; color: #7a9ab5; transition: all 0.15s; user-select: none; }
   .rp:hover { border-color: #00b4ff; color: #00b4ff; }
   .rp.on { background: #002a44; border-color: #00b4ff; color: #00b4ff; }
-  .sub { margin-top: 2rem; width: 100%; padding: 15px; background: #00b4ff; border: none; border-radius: 8px; font-family: 'Barlow Condensed', sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 2px; color: #0a0f1e; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }
+  .sub { margin-top: 2rem; width: 100%; padding: 15px; background: #00b4ff; border: none; border-radius: 8px; font-family: "Barlow Condensed", sans-serif; font-size: 18px; font-weight: 700; letter-spacing: 2px; color: #0a0f1e; cursor: pointer; text-transform: uppercase; transition: background 0.2s; }
   .sub:hover { background: #33c4ff; }
   .sub:disabled { background: #1e3050; color: #3a5a7a; cursor: not-allowed; }
   .full { grid-column: 1 / -1; }
   .note { font-size: 11px; color: #3a5a7a; margin-top: 3px; }
-  .status { display: none; text-align: center; padding: 16px; border-radius: 8px; margin-top: 1rem; font-family: 'Barlow Condensed', sans-serif; font-size: 16px; letter-spacing: 1px; }
+  .status { display: none; text-align: center; padding: 16px; border-radius: 8px; margin-top: 1rem; font-family: "Barlow Condensed", sans-serif; font-size: 16px; letter-spacing: 1px; }
   .status.ok { display: block; background: #002a44; color: #00b4ff; border: 1px solid #00b4ff; }
   .status.err { display: block; background: #2a0a0a; color: #ff6060; border: 1px solid #ff4040; }
   .hidden { display: none !important; }
+  /* Pitch cards */
+  .pitch-cards { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
+  .pitch-card { background: #0d1625; border: 1px solid #1e3050; border-radius: 10px; padding: 1.25rem; }
+  .pitch-card-header { font-family: "Barlow Condensed", sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 2px; color: #00b4ff; text-transform: uppercase; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .pitch-num { background: #00b4ff22; border: 1px solid #00b4ff55; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #00b4ff; flex-shrink: 0; }
+  /* Season stats card */
+  .stats-card { background: #0d1625; border: 1px solid #1e3050; border-radius: 10px; padding: 1.25rem; margin-top: 12px; }
   @media (max-width: 600px) { .g2, .g3 { grid-template-columns: 1fr; } .full { grid-column: 1; } .fw { padding: 1.5rem; } }
 </style>
 </head>
@@ -53,15 +60,16 @@
 
   <!-- PROGRAM INTEREST FIRST -->
   <div class="program-section">
-    <div class="sl" style="margin-top:0">What training are you interested in?</div>
+    <div class="sl">What training are you interested in?</div>
     <div class="rg" id="programPills">
-      <div class="rp" onclick="selectProgram('Remote Hitting')">Remote Hitting</div>
-      <div class="rp" onclick="selectProgram('Remote Pitching')">Remote Pitching</div>
-      <div class="rp" onclick="selectProgram('Remote Hitting + Pitching')">Remote Hitting + Pitching</div>
+      <div class="rp" onclick="selectProgram('Remote Hitting', this)">Remote Hitting</div>
+      <div class="rp" onclick="selectProgram('Remote Pitching', this)">Remote Pitching</div>
+      <div class="rp" onclick="selectProgram('Remote Hitting + Pitching', this)">Remote Hitting + Pitching</div>
     </div>
     <input type="hidden" id="program">
   </div>
 
+  <!-- PERSONAL INFO -->
   <div class="sl">Personal Info</div>
   <div class="g2">
     <div class="f"><label>First Name *</label><input id="firstName" type="text" placeholder="First"></div>
@@ -74,9 +82,10 @@
     <div class="f"><label>Parent / Guardian Phone</label><input id="parentPhone" type="tel" placeholder="(555) 000-0000"></div>
   </div>
 
+  <!-- PHYSICAL PROFILE -->
   <div class="sl">Physical Profile</div>
   <div class="g3">
-    <div class="f"><label>Height</label><input id="height" type="text" placeholder='e.g. 6&apos;1"'></div>
+    <div class="f"><label>Height</label><input id="height" type="text" placeholder="e.g. 6'1&quot;"></div>
     <div class="f"><label>Weight (lbs)</label><input id="weight" type="number" placeholder="e.g. 185"></div>
     <div class="f"><label>Throws</label>
       <select id="throws"><option value="">Select</option><option>Right</option><option>Left</option></select>
@@ -92,6 +101,7 @@
     </div>
   </div>
 
+  <!-- SCHOOL & TEAMS -->
   <div class="sl">School & Teams</div>
   <div class="g2">
     <div class="f"><label>High School / College</label><input id="school" type="text" placeholder="School name"></div>
@@ -104,18 +114,40 @@
     </div>
   </div>
 
-  <!-- HITTING METRICS - shown for hitting or both -->
-  <div id="hittingSection">
+  <!-- HITTING SECTION -->
+  <div id="hittingSection" class="hidden">
     <div class="sl">Hitting Metrics</div>
     <div class="g3">
       <div class="f"><label>Current Exit Velo (mph)</label><input id="exitVelo" type="number" placeholder="e.g. 95" min="40" max="125"></div>
       <div class="f"><label>Peak Exit Velo (mph)</label><input id="peakExitVelo" type="number" placeholder="e.g. 100" min="40" max="125"></div>
-      <div class="f"><label>60-yard dash (sec)</label><input id="sixtyYard" type="number" placeholder="e.g. 6.8" step="0.1" min="5" max="10"></div>
+      <div class="f"><label>60-Yard Dash (sec)</label><input id="sixtyYard" type="number" placeholder="e.g. 6.8" step="0.1" min="5" max="10"></div>
+    </div>
+
+    <div class="sl">Recent Season Stats — Hitting</div>
+    <div class="stats-card">
+      <div class="g2">
+        <div class="f"><label>Season / Year</label><input id="hitSeason" type="text" placeholder="e.g. 2025 HS Varsity"></div>
+        <div class="f"><label>Level</label>
+          <select id="hitLevel"><option value="">Select</option><option>HS Varsity</option><option>HS JV</option><option>JUCO</option><option>D3</option><option>D2</option><option>D1</option><option>Summer / Travel</option><option>Independent Pro</option><option>Other</option></select>
+        </div>
+      </div>
+      <div class="g3" style="margin-top:12px">
+        <div class="f"><label>AVG</label><input id="avg" type="text" placeholder=".325"></div>
+        <div class="f"><label>OBP</label><input id="obp" type="text" placeholder=".410"></div>
+        <div class="f"><label>SLG</label><input id="slg" type="text" placeholder=".520"></div>
+        <div class="f"><label>AB</label><input id="ab" type="number" placeholder="120"></div>
+        <div class="f"><label>HR</label><input id="hr" type="number" placeholder="8"></div>
+        <div class="f"><label>RBI</label><input id="rbi" type="number" placeholder="42"></div>
+        <div class="f"><label>R</label><input id="runs" type="number" placeholder="38"></div>
+        <div class="f"><label>SB</label><input id="sb" type="number" placeholder="12"></div>
+        <div class="f"><label>BB</label><input id="hitBb" type="number" placeholder="18"></div>
+        <div class="f"><label>K</label><input id="hitK" type="number" placeholder="24"></div>
+      </div>
     </div>
   </div>
 
-  <!-- PITCHING METRICS - shown for pitching or both -->
-  <div id="pitchingSection">
+  <!-- PITCHING SECTION -->
+  <div id="pitchingSection" class="hidden">
     <div class="sl">Pitching Metrics</div>
     <div class="g3">
       <div class="f"><label>Current FB Velo (mph)</label><input id="fbVelo" type="number" placeholder="e.g. 88" min="50" max="105">
@@ -123,37 +155,46 @@
       </div>
       <div class="f"><label>Peak FB Velo (mph)</label><input id="peakVelo" type="number" placeholder="e.g. 91" min="50" max="105"></div>
       <div class="f"></div>
-      <div class="f full"><label>Pitches Thrown</label>
-        <div class="rg" id="pitches">
-          <div class="rp" onclick="multi(this)">Fastball (4-seam)</div>
-          <div class="rp" onclick="multi(this)">Fastball (2-seam / sinker)</div>
-          <div class="rp" onclick="multi(this)">Cutter</div>
-          <div class="rp" onclick="multi(this)">Curveball</div>
-          <div class="rp" onclick="multi(this)">Slider</div>
-          <div class="rp" onclick="multi(this)">Sweeper</div>
-          <div class="rp" onclick="multi(this)">Changeup</div>
-          <div class="rp" onclick="multi(this)">Splitter</div>
-          <div class="rp" onclick="multi(this)">Knuckleball</div>
-        </div>
-      </div>
     </div>
 
-    <div class="sl">Trackman Data</div>
-    <div class="g2">
-      <div class="f"><label>Trackman Access?</label>
-        <select id="trackmanAccess"><option value="">Select</option><option>Yes — school / team has Trackman</option><option>Yes — used at showcase / camp</option><option>No</option><option>Not sure</option></select>
+    <div class="sl">Pitches Thrown</div>
+    <div class="rg" id="pitches">
+      <div class="rp" onclick="togglePitch(this, '4-Seam Fastball')">4-Seam Fastball</div>
+      <div class="rp" onclick="togglePitch(this, '2-Seam / Sinker')">2-Seam / Sinker</div>
+      <div class="rp" onclick="togglePitch(this, 'Cutter')">Cutter</div>
+      <div class="rp" onclick="togglePitch(this, 'Curveball')">Curveball</div>
+      <div class="rp" onclick="togglePitch(this, 'Slider')">Slider</div>
+      <div class="rp" onclick="togglePitch(this, 'Sweeper')">Sweeper</div>
+      <div class="rp" onclick="togglePitch(this, 'Changeup')">Changeup</div>
+      <div class="rp" onclick="togglePitch(this, 'Splitter')">Splitter</div>
+      <div class="rp" onclick="togglePitch(this, 'Knuckleball')">Knuckleball</div>
+    </div>
+
+    <div id="pitchCards" class="pitch-cards"></div>
+
+    <div class="sl">Recent Season Stats — Pitching</div>
+    <div class="stats-card">
+      <div class="g2">
+        <div class="f"><label>Season / Year</label><input id="pitchSeason" type="text" placeholder="e.g. 2025 HS Varsity"></div>
+        <div class="f"><label>Level</label>
+          <select id="pitchLevel"><option value="">Select</option><option>HS Varsity</option><option>HS JV</option><option>JUCO</option><option>D3</option><option>D2</option><option>D1</option><option>Summer / Travel</option><option>Independent Pro</option><option>Other</option></select>
+        </div>
       </div>
-      <div class="f"><label>Spin Rate — FB (rpm)</label><input id="spinRate" type="number" placeholder="e.g. 2200" min="1000" max="3500"></div>
-      <div class="f"><label>Spin Axis / Tilt</label><input id="spinAxis" type="text" placeholder="e.g. 12:00, 1:30"></div>
-      <div class="f"><label>Extension (ft)</label><input id="extension" type="number" placeholder="e.g. 6.5" step="0.1" min="4" max="8"></div>
-      <div class="f"><label>Induced Vert Break (in)</label><input id="ivb" type="number" placeholder="e.g. 18" min="-30" max="30"></div>
-      <div class="f"><label>Horizontal Break (in)</label><input id="hb" type="number" placeholder="e.g. 12" min="-30" max="30"></div>
-      <div class="f full"><label>Other Trackman Notes</label>
-        <textarea id="trackmanNotes" rows="2" placeholder="Paste any Trackman summary, link, or additional metrics here"></textarea>
+      <div class="g3" style="margin-top:12px">
+        <div class="f"><label>ERA</label><input id="era" type="text" placeholder="2.85"></div>
+        <div class="f"><label>IP</label><input id="ip" type="text" placeholder="62.1"></div>
+        <div class="f"><label>W</label><input id="wins" type="number" placeholder="7"></div>
+        <div class="f"><label>L</label><input id="losses" type="number" placeholder="2"></div>
+        <div class="f"><label>K</label><input id="ks" type="number" placeholder="74"></div>
+        <div class="f"><label>BB</label><input id="bbs" type="number" placeholder="18"></div>
+        <div class="f"><label>WHIP</label><input id="whip" type="text" placeholder="1.02"></div>
+        <div class="f"><label>K/9</label><input id="k9" type="text" placeholder="10.7"></div>
+        <div class="f"><label>BB/9</label><input id="bb9" type="text" placeholder="2.6"></div>
       </div>
     </div>
   </div>
 
+  <!-- GOALS -->
   <div class="sl">Goals & Background</div>
   <div class="g2">
     <div class="f"><label>How did you hear about us?</label>
@@ -184,83 +225,158 @@
 </div>
 
 <script>
-const SHEETDB_URL = 'https://sheetdb.io/api/v1/k8cuneu2mopu3';
-let selectedProgram = '';
+const SHEETDB_URL = "https://sheetdb.io/api/v1/k8cuneu2mopu3";
+let selectedProgram = "";
+let selectedPitches = [];
 
-function selectProgram(val) {
+function selectProgram(val, el) {
   selectedProgram = val;
-  document.getElementById('program').value = val;
-  document.querySelectorAll('#programPills .rp').forEach(p => p.classList.remove('on'));
-  event.target.classList.add('on');
+  document.getElementById("program").value = val;
+  document.querySelectorAll("#programPills .rp").forEach(p => p.classList.remove("on"));
+  el.classList.add("on");
   updateSections();
 }
 
 function updateSections() {
   const p = selectedProgram;
-  const hit = document.getElementById('hittingSection');
-  const pitch = document.getElementById('pitchingSection');
-  if (p === 'Remote Hitting') { hit.classList.remove('hidden'); pitch.classList.add('hidden'); }
-  else if (p === 'Remote Pitching') { hit.classList.add('hidden'); pitch.classList.remove('hidden'); }
-  else if (p === 'Remote Hitting + Pitching') { hit.classList.remove('hidden'); pitch.classList.remove('hidden'); }
-  else { hit.classList.add('hidden'); pitch.classList.add('hidden'); }
+  const hit = document.getElementById("hittingSection");
+  const pitch = document.getElementById("pitchingSection");
+  const isHit = p === "Remote Hitting" || p === "Remote Hitting + Pitching";
+  const isPitch = p === "Remote Pitching" || p === "Remote Hitting + Pitching";
+  hit.classList.toggle("hidden", !isHit);
+  pitch.classList.toggle("hidden", !isPitch);
 }
 
-updateSections();
+function togglePitch(el, name) {
+  el.classList.toggle("on");
+  if (el.classList.contains("on")) {
+    if (!selectedPitches.includes(name)) selectedPitches.push(name);
+  } else {
+    selectedPitches = selectedPitches.filter(p => p !== name);
+  }
+  renderPitchCards();
+}
+
+function renderPitchCards() {
+  const container = document.getElementById("pitchCards");
+  // Keep existing values before re-render
+  const existing = {};
+  container.querySelectorAll(".pitch-card").forEach(card => {
+    const pitch = card.dataset.pitch;
+    existing[pitch] = {
+      velo: card.querySelector("[data-field=velo]").value,
+      spin: card.querySelector("[data-field=spin]").value,
+      ivb:  card.querySelector("[data-field=ivb]").value,
+      hb:   card.querySelector("[data-field=hb]").value,
+      ext:  card.querySelector("[data-field=ext]").value,
+      vaa:  card.querySelector("[data-field=vaa]").value,
+      eff:  card.querySelector("[data-field=eff]").value,
+    };
+  });
+
+  container.innerHTML = "";
+  selectedPitches.forEach((name, i) => {
+    const saved = existing[name] || {};
+    const card = document.createElement("div");
+    card.className = "pitch-card";
+    card.dataset.pitch = name;
+    card.innerHTML = `
+      <div class="pitch-card-header"><span class="pitch-num">${i+1}</span>${name}</div>
+      <div class="g3">
+        <div class="f"><label>Velocity (mph)</label><input data-field="velo" type="number" placeholder="e.g. 92" value="${saved.velo||""}"></div>
+        <div class="f"><label>Spin Rate (rpm)</label><input data-field="spin" type="number" placeholder="e.g. 2400" value="${saved.spin||""}"></div>
+        <div class="f"><label>IVB (in)</label><input data-field="ivb" type="number" placeholder="e.g. 16" value="${saved.ivb||""}"></div>
+        <div class="f"><label>HB (in)</label><input data-field="hb" type="number" placeholder="e.g. 8" value="${saved.hb||""}"></div>
+        <div class="f"><label>Extension (ft)</label><input data-field="ext" type="number" placeholder="e.g. 6.5" step="0.1" value="${saved.ext||""}"></div>
+        <div class="f"><label>VAA (°)</label><input data-field="vaa" type="number" placeholder="e.g. -5.0" step="0.1" value="${saved.vaa||""}"></div>
+        <div class="f"><label>Spin Efficiency (%)</label><input data-field="eff" type="number" placeholder="e.g. 85" min="0" max="100" value="${saved.eff||""}"></div>
+      </div>`;
+    container.appendChild(card);
+  });
+}
 
 function single(el, group) {
-  document.querySelectorAll('#' + group + ' .rp').forEach(p => p.classList.remove('on'));
-  el.classList.toggle('on');
+  document.querySelectorAll("#" + group + " .rp").forEach(p => p.classList.remove("on"));
+  el.classList.toggle("on");
 }
-function multi(el) { el.classList.toggle('on'); }
 
-function v(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+function v(id) { const el = document.getElementById(id); return el ? el.value.trim() : ""; }
 function pills(id) {
-  return Array.from(document.querySelectorAll('#' + id + ' .rp.on')).map(p => p.textContent).join(', ');
+  return Array.from(document.querySelectorAll("#" + id + " .rp.on")).map(p => p.textContent).join(", ");
+}
+
+function getPitchData() {
+  const cards = document.querySelectorAll(".pitch-card");
+  const result = [];
+  cards.forEach(card => {
+    const pitch = card.dataset.pitch;
+    const d = {
+      pitch,
+      velo: card.querySelector("[data-field=velo]").value,
+      spin: card.querySelector("[data-field=spin]").value,
+      ivb:  card.querySelector("[data-field=ivb]").value,
+      hb:   card.querySelector("[data-field=hb]").value,
+      ext:  card.querySelector("[data-field=ext]").value,
+      vaa:  card.querySelector("[data-field=vaa]").value,
+      eff:  card.querySelector("[data-field=eff]").value,
+    };
+    result.push(`${pitch}: Velo ${d.velo}, Spin ${d.spin}, IVB ${d.ivb}, HB ${d.hb}, Ext ${d.ext}, VAA ${d.vaa}, Eff ${d.eff}%`);
+  });
+  return result.join(" | ");
 }
 
 async function submitForm() {
-  const first = v('firstName'), last = v('lastName'), email = v('email');
-  if (!selectedProgram) { showStatus('Please select a program (Hitting, Pitching, or Both) at the top.', false); return; }
-  if (!first || !last || !email) { showStatus('Please fill in required fields: First Name, Last Name, and Email.', false); return; }
+  const first = v("firstName"), last = v("lastName"), email = v("email");
+  if (!selectedProgram) { showStatus("Please select a program at the top.", false); return; }
+  if (!first || !last || !email) { showStatus("Please fill in First Name, Last Name, and Email.", false); return; }
 
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true; btn.textContent = 'Submitting...';
+  const btn = document.getElementById("submitBtn");
+  btn.disabled = true; btn.textContent = "Submitting...";
 
   const payload = {
-    'First Name': first, 'Last Name': last, 'Date of Birth': v('dob'), 'Age': v('age'),
-    'Email': email, 'Phone': v('phone'), 'Parent Name': v('parentName'), 'Parent Phone': v('parentPhone'),
-    'Height': v('height'), 'Weight': v('weight'), 'Throws': v('throws'), 'Bats': v('bats'),
-    'Primary Position': v('pos1'), 'Secondary Position': v('pos2'),
-    'School': v('school'), 'Graduation Year': v('gradYear'),
-    'Summer Team': v('summerTeam'), 'Circuit': v('circuit'),
-    'Exit Velo': v('exitVelo'), 'Peak Exit Velo': v('peakExitVelo'), '60 Yard': v('sixtyYard'),
-    'Current FB Velo': v('fbVelo'), 'Peak FB Velo': v('peakVelo'),
-    'Pitches Thrown': pills('pitches'),
-    'Trackman Access': v('trackmanAccess'), 'Spin Rate FB': v('spinRate'),
-    'Spin Axis': v('spinAxis'), 'Extension': v('extension'), 'IVB': v('ivb'), 'HB': v('hb'),
-    'Trackman Notes': v('trackmanNotes'),
-    'Program Interest': selectedProgram, 'Referral': v('referral'),
-    'Primary Goal': pills('goals'), 'Injuries': v('injuries'), 'Additional Notes': v('notes')
+    "First Name": first, "Last Name": last, "Date of Birth": v("dob"), "Age": v("age"),
+    "Email": email, "Phone": v("phone"), "Parent Name": v("parentName"), "Parent Phone": v("parentPhone"),
+    "Height": v("height"), "Weight": v("weight"), "Throws": v("throws"), "Bats": v("bats"),
+    "Primary Position": v("pos1"), "Secondary Position": v("pos2"),
+    "School": v("school"), "Graduation Year": v("gradYear"),
+    "Summer Team": v("summerTeam"), "Circuit": v("circuit"),
+    "Program Interest": selectedProgram,
+    // Hitting
+    "Exit Velo": v("exitVelo"), "Peak Exit Velo": v("peakExitVelo"), "60 Yard": v("sixtyYard"),
+    "Hit Season": v("hitSeason"), "Hit Level": v("hitLevel"),
+    "AVG": v("avg"), "OBP": v("obp"), "SLG": v("slg"), "AB": v("ab"),
+    "HR": v("hr"), "RBI": v("rbi"), "R": v("runs"), "SB": v("sb"),
+    "Hit BB": v("hitBb"), "Hit K": v("hitK"),
+    // Pitching
+    "Current FB Velo": v("fbVelo"), "Peak FB Velo": v("peakVelo"),
+    "Pitches Thrown": selectedPitches.join(", "),
+    "Pitch Data": getPitchData(),
+    "Pitch Season": v("pitchSeason"), "Pitch Level": v("pitchLevel"),
+    "ERA": v("era"), "IP": v("ip"), "W": v("wins"), "L": v("losses"),
+    "K": v("ks"), "BB": v("bbs"), "WHIP": v("whip"), "K/9": v("k9"), "BB/9": v("bb9"),
+    // Goals
+    "Referral": v("referral"), "Primary Goal": pills("goals"),
+    "Injuries": v("injuries"), "Additional Notes": v("notes")
   };
 
   try {
     const res = await fetch(SHEETDB_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
       body: JSON.stringify({ data: payload })
     });
-    if (res.ok) { showStatus('Intake submitted! We will be in touch shortly.', true); btn.textContent = 'Submitted'; }
-    else { throw new Error('Server error'); }
-  } catch (e) {
-    showStatus('Submission failed — please try again or contact 8ctane directly.', false);
-    btn.disabled = false; btn.textContent = 'Submit Intake Form';
+    if (res.ok) { showStatus("Intake submitted! We will be in touch shortly.", true); btn.textContent = "Submitted ✓"; }
+    else { throw new Error(); }
+  } catch {
+    showStatus("Submission failed — please try again or contact 8ctane directly.", false);
+    btn.disabled = false; btn.textContent = "Submit Intake Form";
   }
 }
 
 function showStatus(msg, ok) {
-  const el = document.getElementById('statusMsg');
-  el.textContent = msg; el.className = 'status ' + (ok ? 'ok' : 'err');
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  const el = document.getElementById("statusMsg");
+  el.textContent = msg; el.className = "status " + (ok ? "ok" : "err");
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 </script>
 </body>
