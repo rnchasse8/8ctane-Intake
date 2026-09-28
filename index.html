@@ -96,7 +96,7 @@
     <div class="f"><label>Primary Position</label>
       <select id="pos1"><option value="">Select</option><option>Pitcher</option><option>Catcher</option><option>1B</option><option>2B</option><option>3B</option><option>SS</option><option>OF</option><option>DH/UT</option></select>
     </div>
-    <div class="f"><label>Secondary Position</label>
+    <div class="f"><label>Secondary Position (if applicable)</label>
       <select id="pos2"><option value="">Select</option><option>Pitcher</option><option>Catcher</option><option>1B</option><option>2B</option><option>3B</option><option>SS</option><option>OF</option><option>DH/UT</option><option>N/A</option></select>
     </div>
   </div>
@@ -104,14 +104,8 @@
   <!-- SCHOOL & TEAMS -->
   <div class="sl">School & Teams</div>
   <div class="g2">
-    <div class="f"><label>High School / College</label><input id="school" type="text" placeholder="School name"></div>
-    <div class="f"><label>Graduation Year</label>
-      <select id="gradYear"><option value="">Select</option><option>2025</option><option>2026</option><option>2027</option><option>2028</option><option>2029</option><option>2030</option><option>College freshman</option><option>College sophomore</option><option>College junior</option><option>College senior</option></select>
-    </div>
-    <div class="f"><label>Summer / Travel Team</label><input id="summerTeam" type="text" placeholder="Team name"></div>
-    <div class="f"><label>Summer Team Circuit</label>
-      <select id="circuit"><option value="">Select</option><option>Perfect Game</option><option>Prep Baseball Report</option><option>USSSA</option><option>WWBA</option><option>Independent</option><option>Other</option></select>
-    </div>
+    <div class="f"><label>Last Team Played For</label><input id="lastTeam" type="text" placeholder="School or team name"></div>
+    <div class="f"><label>Other Teams</label><input id="otherTeams" type="text" placeholder="Any other teams (comma separated)"></div>
   </div>
 
   <!-- HITTING SECTION -->
@@ -123,26 +117,8 @@
       <div class="f"><label>60-Yard Dash (sec)</label><input id="sixtyYard" type="number" placeholder="e.g. 6.8" step="0.1" min="5" max="10"></div>
     </div>
 
-    <div class="sl">Recent Season Stats — Hitting</div>
-    <div class="stats-card">
-      <div class="g2">
-        <div class="f"><label>Season / Year</label><input id="hitSeason" type="text" placeholder="e.g. 2025 HS Varsity"></div>
-        <div class="f"><label>Level</label>
-          <select id="hitLevel"><option value="">Select</option><option>HS Varsity</option><option>HS JV</option><option>JUCO</option><option>D3</option><option>D2</option><option>D1</option><option>Summer / Travel</option><option>Independent Pro</option><option>Other</option></select>
-        </div>
-      </div>
-      <div class="g3" style="margin-top:12px">
-        <div class="f"><label>AVG</label><input id="avg" type="text" placeholder=".325"></div>
-        <div class="f"><label>OBP</label><input id="obp" type="text" placeholder=".410"></div>
-        <div class="f"><label>SLG</label><input id="slg" type="text" placeholder=".520"></div>
-        <div class="f"><label>AB</label><input id="ab" type="number" placeholder="120"></div>
-        <div class="f"><label>HR</label><input id="hr" type="number" placeholder="8"></div>
-        <div class="f"><label>RBI</label><input id="rbi" type="number" placeholder="42"></div>
-        <div class="f"><label>R</label><input id="runs" type="number" placeholder="38"></div>
-        <div class="f"><label>SB</label><input id="sb" type="number" placeholder="12"></div>
-        <div class="f"><label>BB</label><input id="hitBb" type="number" placeholder="18"></div>
-        <div class="f"><label>K</label><input id="hitK" type="number" placeholder="24"></div>
-      </div>
+    <div class="f full" style="margin-top:12px"><label>Give me a brief explanation of who you are as a player</label>
+      <textarea id="hitBio" rows="3" placeholder="Swing style, approach, strengths, what you're working on..."></textarea>
     </div>
   </div>
 
@@ -155,6 +131,10 @@
       </div>
       <div class="f"><label>Peak FB Velo (mph)</label><input id="peakVelo" type="number" placeholder="e.g. 91" min="50" max="105"></div>
       <div class="f"></div>
+    </div>
+
+    <div class="f full" style="margin-top:12px"><label>Give me a brief explanation of who you are as a player</label>
+      <textarea id="pitchBio" rows="3" placeholder="Arsenal, strengths, what you're working on..."></textarea>
     </div>
 
     <div class="sl">Pitches Thrown</div>
@@ -172,26 +152,6 @@
 
     <div id="pitchCards" class="pitch-cards"></div>
 
-    <div class="sl">Recent Season Stats — Pitching</div>
-    <div class="stats-card">
-      <div class="g2">
-        <div class="f"><label>Season / Year</label><input id="pitchSeason" type="text" placeholder="e.g. 2025 HS Varsity"></div>
-        <div class="f"><label>Level</label>
-          <select id="pitchLevel"><option value="">Select</option><option>HS Varsity</option><option>HS JV</option><option>JUCO</option><option>D3</option><option>D2</option><option>D1</option><option>Summer / Travel</option><option>Independent Pro</option><option>Other</option></select>
-        </div>
-      </div>
-      <div class="g3" style="margin-top:12px">
-        <div class="f"><label>ERA</label><input id="era" type="text" placeholder="2.85"></div>
-        <div class="f"><label>IP</label><input id="ip" type="text" placeholder="62.1"></div>
-        <div class="f"><label>W</label><input id="wins" type="number" placeholder="7"></div>
-        <div class="f"><label>L</label><input id="losses" type="number" placeholder="2"></div>
-        <div class="f"><label>K</label><input id="ks" type="number" placeholder="74"></div>
-        <div class="f"><label>BB</label><input id="bbs" type="number" placeholder="18"></div>
-        <div class="f"><label>WHIP</label><input id="whip" type="text" placeholder="1.02"></div>
-        <div class="f"><label>K/9</label><input id="k9" type="text" placeholder="10.7"></div>
-        <div class="f"><label>BB/9</label><input id="bb9" type="text" placeholder="2.6"></div>
-      </div>
-    </div>
   </div>
 
   <!-- GOALS -->
@@ -220,6 +180,26 @@
     </div>
   </div>
 
+  <!-- EQUIPMENT -->
+  <div class="sl">Equipment & Facility Access</div>
+  <div class="f full"><label>What equipment do you have access to at home?</label>
+    <div class="rg" id="equipment">
+      <div class="rp" onclick="toggleEquip(this, 'Batting cage / net')">Batting cage / net</div>
+      <div class="rp" onclick="toggleEquip(this, 'Weighted balls (Plyo)')">Weighted balls (Plyo)</div>
+      <div class="rp" onclick="toggleEquip(this, 'Resistance bands')">Resistance bands</div>
+      <div class="rp" onclick="toggleEquip(this, 'Weight room / gym access')">Weight room / gym access</div>
+      <div class="rp" onclick="toggleEquip(this, 'Dumbbells / free weights')">Dumbbells / free weights</div>
+      <div class="rp" onclick="toggleEquip(this, 'Medicine ball')">Medicine ball</div>
+      <div class="rp" onclick="toggleEquip(this, 'Backyard / turf mound')">Backyard / turf mound</div>
+      <div class="rp" onclick="toggleEquip(this, 'Pitching machine')">Pitching machine</div>
+      <div class="rp" onclick="toggleEquip(this, 'Radar gun')">Radar gun</div>
+      <div class="rp" onclick="toggleEquip(this, 'None')">None</div>
+    </div>
+  </div>
+  <div class="f full" style="margin-top:12px"><label>Other equipment (optional)</label>
+    <input id="equipOther" type="text" placeholder="Anything else you have access to">
+  </div>
+
   <button class="sub" id="submitBtn" onclick="submitForm()">Submit Intake Form</button>
   <div class="status" id="statusMsg"></div>
 </div>
@@ -228,6 +208,16 @@
 const SHEETDB_URL = "https://sheetdb.io/api/v1/k8cuneu2mopu3";
 let selectedProgram = "";
 let selectedPitches = [];
+let selectedEquipment = [];
+
+function toggleEquip(el, name) {
+  el.classList.toggle("on");
+  if (el.classList.contains("on")) {
+    if (!selectedEquipment.includes(name)) selectedEquipment.push(name);
+  } else {
+    selectedEquipment = selectedEquipment.filter(e => e !== name);
+  }
+}
 
 function selectProgram(val, el) {
   selectedProgram = val;
@@ -338,25 +328,21 @@ async function submitForm() {
     "Email": email, "Phone": v("phone"), "Parent Name": v("parentName"), "Parent Phone": v("parentPhone"),
     "Height": v("height"), "Weight": v("weight"), "Throws": v("throws"), "Bats": v("bats"),
     "Primary Position": v("pos1"), "Secondary Position": v("pos2"),
-    "School": v("school"), "Graduation Year": v("gradYear"),
-    "Summer Team": v("summerTeam"), "Circuit": v("circuit"),
+    "Last Team": v("lastTeam"), "Other Teams": v("otherTeams"),
     "Program Interest": selectedProgram,
     // Hitting
     "Exit Velo": v("exitVelo"), "Peak Exit Velo": v("peakExitVelo"), "60 Yard": v("sixtyYard"),
-    "Hit Season": v("hitSeason"), "Hit Level": v("hitLevel"),
-    "AVG": v("avg"), "OBP": v("obp"), "SLG": v("slg"), "AB": v("ab"),
-    "HR": v("hr"), "RBI": v("rbi"), "R": v("runs"), "SB": v("sb"),
-    "Hit BB": v("hitBb"), "Hit K": v("hitK"),
+    "Hitter Bio": v("hitBio"),
     // Pitching
     "Current FB Velo": v("fbVelo"), "Peak FB Velo": v("peakVelo"),
+    "Pitcher Bio": v("pitchBio"),
     "Pitches Thrown": selectedPitches.join(", "),
     "Pitch Data": getPitchData(),
-    "Pitch Season": v("pitchSeason"), "Pitch Level": v("pitchLevel"),
-    "ERA": v("era"), "IP": v("ip"), "W": v("wins"), "L": v("losses"),
-    "K": v("ks"), "BB": v("bbs"), "WHIP": v("whip"), "K/9": v("k9"), "BB/9": v("bb9"),
     // Goals
     "Referral": v("referral"), "Primary Goal": pills("goals"),
-    "Injuries": v("injuries"), "Additional Notes": v("notes")
+    "Injuries": v("injuries"), "Additional Notes": v("notes"),
+    // Equipment
+    "Equipment": selectedEquipment.join(", "), "Equipment Other": v("equipOther")
   };
 
   try {
