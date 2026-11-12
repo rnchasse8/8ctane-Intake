@@ -40,6 +40,9 @@
   .status.ok { display: block; background: #002a44; color: #00b4ff; border: 1px solid #00b4ff; }
   .status.err { display: block; background: #2a0a0a; color: #ff6060; border: 1px solid #ff4040; }
   .hidden { display: none !important; }
+  .tm-check { display: flex; align-items: center; gap: 10px; margin-top: 16px; padding: 12px 14px; background: #0d1625; border: 1px solid #1e3050; border-radius: 8px; font-size: 14px; color: #c8d6e5; cursor: pointer; user-select: none; }
+  .tm-check:hover { border-color: #00b4ff; }
+  .tm-check input { width: 18px; height: 18px; accent-color: #00b4ff; flex-shrink: 0; cursor: pointer; }
   /* Pitch cards */
   .pitch-cards { display: flex; flex-direction: column; gap: 14px; margin-top: 12px; }
   .pitch-card { background: #0d1625; border: 1px solid #1e3050; border-radius: 10px; padding: 1.25rem; }
@@ -150,7 +153,8 @@
       <div class="rp" onclick="togglePitch(this, 'Knuckleball')">Knuckleball</div>
     </div>
 
-    <div id="pitchCards" class="pitch-cards"></div>
+    <label class="tm-check"><input type="checkbox" id="hasTrackman" onchange="toggleTrackman()"> I have Trackman data for my pitches (velo, spin, movement)</label>
+    <div id="pitchCards" class="pitch-cards hidden"></div>
 
   </div>
 
@@ -237,6 +241,11 @@ function updateSections() {
   pitch.classList.toggle("hidden", !isPitch);
 }
 
+function toggleTrackman() {
+  const on = document.getElementById("hasTrackman").checked;
+  document.getElementById("pitchCards").classList.toggle("hidden", !on);
+}
+
 function togglePitch(el, name) {
   el.classList.toggle("on");
   if (el.classList.contains("on")) {
@@ -296,6 +305,8 @@ function pills(id) {
 }
 
 function getPitchData() {
+  const tm = document.getElementById("hasTrackman");
+  if (!tm || !tm.checked) return "";
   const cards = document.querySelectorAll(".pitch-card");
   const fields = [["Velo","velo"],["Spin","spin"],["IVB","ivb"],["HB","hb"],["Ext","ext"],["VAA","vaa"],["Eff","eff"]];
   const result = [];
