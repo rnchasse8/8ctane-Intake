@@ -297,20 +297,16 @@ function pills(id) {
 
 function getPitchData() {
   const cards = document.querySelectorAll(".pitch-card");
+  const fields = [["Velo","velo"],["Spin","spin"],["IVB","ivb"],["HB","hb"],["Ext","ext"],["VAA","vaa"],["Eff","eff"]];
   const result = [];
   cards.forEach(card => {
-    const pitch = card.dataset.pitch;
-    const d = {
-      pitch,
-      velo: card.querySelector("[data-field=velo]").value,
-      spin: card.querySelector("[data-field=spin]").value,
-      ivb:  card.querySelector("[data-field=ivb]").value,
-      hb:   card.querySelector("[data-field=hb]").value,
-      ext:  card.querySelector("[data-field=ext]").value,
-      vaa:  card.querySelector("[data-field=vaa]").value,
-      eff:  card.querySelector("[data-field=eff]").value,
-    };
-    result.push(`${pitch}: Velo ${d.velo}, Spin ${d.spin}, IVB ${d.ivb}, HB ${d.hb}, Ext ${d.ext}, VAA ${d.vaa}, Eff ${d.eff}%`);
+    const parts = [];
+    fields.forEach(([label, key]) => {
+      const val = card.querySelector("[data-field=" + key + "]").value.trim();
+      if (val) parts.push(label + " " + val + (key === "eff" ? "%" : ""));
+    });
+    // Skip pitches where nothing was filled in
+    if (parts.length) result.push(card.dataset.pitch + ": " + parts.join(", "));
   });
   return result.join(" | ");
 }
